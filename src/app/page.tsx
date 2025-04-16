@@ -3,10 +3,17 @@ import Rodape from "@/widgets/Rodape";
 import SearchBar from "@/widgets/SearchBar";
 import SuperiorBar from "@/widgets/SuperiorBar";
 import Swipp from "@/widgets/Swiper";
+import { fetchData } from "@/utils/api"
 
-export default function Home() {
+
+const dados = await fetchData()
+
+
+
+export default async function Home() {
   return (
     <>
+    
       <header className="container mx-auto">
         <SuperiorBar />
         <SearchBar />
@@ -15,8 +22,8 @@ export default function Home() {
       <hr className="my-3" />
 
       <main className="container mx-auto">
-        <Swipp />
-        <Acomodations/>
+        <Swipp icons={dados.icons}/>
+        <Acomodations accommodation={dados.accommodation}/>
       </main>
       
 
